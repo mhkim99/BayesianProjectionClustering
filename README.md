@@ -27,6 +27,7 @@ We generate a synthetic longitudinal data as described in Section 4.1 of the pap
 ```math
 y_{it} = \beta^{(1)}_{\delta_i} \cos(\pi w^{(1)}_i t) +  \beta^{(2)}_{\delta_i} \cos(\pi w^{(2)}_i t) + \epsilon_{it},
 ```
+for $i = 1, 2, \ldots, 120$ and $t = 1/40, 2/40, \ldots, 39/40, 1$.
 
 - $`w^{(1)}_i \sim \text{Unif}(\{1,2,3\})`$, $`w^{(2)}_i \sim \text{Unif}(\{7,8,9\})`$, and $`\epsilon_{it}\sim N(0,0.1)`$.
 - Assign $`\delta_i=g`$ if subject $`i`$ belongs to group $`g\in \{1,2,3,4\}`$. The groups are defined as follows:
@@ -55,9 +56,9 @@ We fit temporal trends in the data using Fourier cosine bases, incorporating a r
   <img src="eg1_synthetic/plotClusterProbEg1.png" width="75%">
 </p>
 
-- We never wrongly cluster a strong low frequency observation with a weak one for the low frequency choice of random effects. Similarly, there are no wrong clusters for high frequency case.
+- We never wrongly cluster a strong low frequency observation with a weak one for the low frequency choice of random effects. Similarly, there are no wrong clusterings for high frequency case.
 - However, for the intermediate frequency case, the result shows a loss of information about true groups when excluding high and low frequency terms.
-- Using all frequencies results in some incorrect clustering (i.e., black labels below), indicating that filtering noise by integrating out some random effects aids in distinguishing strong/weak low or high-frequency observations.
+- Using all frequencies results in some incorrect clustering (i.e., black labels below), indicating that filtering noise by integrating out some random effects aids in distinguishing strong/weak low or high frequency observations.
 
 ## Application to real datasets
 
