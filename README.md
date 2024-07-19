@@ -14,8 +14,9 @@ Taeryon Choi, Korea University (trchoi@korea.ac.kr)<br/>
 
 ### Maintainers
 
-Yinan Mao, National University of Singapore (R code) (maoyinan.jscz@gmail.com)<br/>
-Minhyeok Kim, Korea University (Github page) (kmh15937@korea.ac.kr)<br/>
+Yinan Mao, National University of Singapore (maoyinan.jscz@gmail.com)<br/>
+Minhyeok Kim, Korea University (kmh15937@korea.ac.kr)<br/>
+Dongu Han, Korea University (idontknow35@korea.ac.kr)<br/>
 
 ## Introduction
 
