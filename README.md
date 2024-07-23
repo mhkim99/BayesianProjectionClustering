@@ -20,7 +20,7 @@ Dongu Han, Korea University (idontknow35@korea.ac.kr)<br/>
 
 ## Introduction
 
-We propose a Bayesian clustering method that combines linear mixed models with predictive projections. Our approach generates a predictive replicate for each observation, sharing only a selected subset of random effects with the original, while the remaining effects are integrated out via the conditional prior. Predictive projections are then defined in which the number of distinct values for the shared random effects is finite, in order to obtain different clusters. The main advantage of our method is the ability to control which aspects of the data define clusters through the choice of random effects that are shared with the predictive replicates. Integrating out certain random effects makes the choice of what features should be ignored explicit, allowing the clustering to focus on specific, relevant aspects of the data.
+We propose a Bayesian clustering method that combines linear mixed models with predictive projections. Our approach generates a predictive replicate for each observation, sharing only a selected subset of random effects with the original, while the remaining effects are integrated out via the conditional prior. Predictive projections are then defined in which the number of distinct values for the shared random effects is finite, in order to obtain different clusters. The main advantage of our method is the ability to control which aspects of the data define clusters through the choice of random effects that are shared with the predictive replicates.
 
 ## Example with synthetic data
 
@@ -46,21 +46,58 @@ for $i = 1, 2, \ldots, 120$ and $t = 1/40, 2/40, \ldots, 39/40, 1$.
 For each individual, one basis function is a 'low frequency' term and one basis function is a 'high frequency' term. The coefficient for each basis function can be large or small in magnitude, so that the low or high frequency signal can be strong or weak.
 
 <p align="center">
-  <img src="eg1_synthetic/plotSeriesEg1.png" width="75%">
+  <img src="eg1_synthetic/plotSeriesEg1.png" width="65%">
 </p>
 
 We fit temporal trends in the data using Fourier cosine bases, incorporating a random effect for each basis function. Next, we apply our clustering method with four different choices of random effects corresponding to the following frequency ranges: (1) all frequencies, (2) low frequencies, (3) intermediate frequencies, and (4) high frequencies.
 
-### Result
+### Results
 
 <p align="center">
-  <img src="eg1_synthetic/plotClusterProbEg1.png" width="75%">
+  <img src="eg1_synthetic/plotClusterProbEg1.png" width="65%">
 </p>
-
-- We never wrongly cluster a strong low frequency observation with a weak one for the low frequency choice of random effects. Similarly, there are no wrong clusterings for high frequency case.
-- However, for the intermediate frequency case, the result shows a loss of information about true groups when excluding high and low frequency terms.
-- Using all frequencies results in some incorrect clustering (i.e., black labels below), indicating that filtering noise by integrating out some random effects aids in distinguishing strong/weak low or high frequency observations.
 
 ## Application to real datasets
 
-The 'eg2_crop' and 'eg3_yeast' folders include the code and data needed to analyze the crop image data (Section 4.2) and DNA data (Section 4.3) described in the paper, respectively.
+We analyze two datasets in the paper: crop image data (Section 4.2) and DNA data (Section 4.3).
+- Following the synthetic example, we use a mixed effects model with Fourier cosine bases as the random effects. We then apply our clustering method using four different choices of random effects, each based on frequency ranges tailored to the specific dataset. 
+- For each clustering, the number of clusters is chosen based on clustering stability estimated by nonparametric bootstrap.
+- We consider 5 classes, each containing 30 observed series, totaling 150 time series from 5 distinct classes.
+
+### Crop image data
+
+- The data can be downloaded from the [UCR Time Series Classification Archive](https://www.cs.ucr.edu/%7Eeamonn/time_series_data_2018/).
+- Each observation represents a time series associated with a pixel from a satellite image, where the images at different times are corrected so that a given pixel corresponds to the same spatial region in all images.
+
+<p align="center">
+  <img src="eg2_crop/plotSeriesEg2.png" width="65%">
+</p>
+
+### Results
+
+<p align="center">
+  <img src="eg2_crop/plotKmeansEg2.png" width="65%">
+</p>
+
+<p align="center">
+  <img src="eg2_crop/plotClusterProbEg2.png" width="65%">
+</p>
+
+
+### DNA data
+
+- In the gene expression data (DNA data), each time series gives gene expression level over time relative to a control sample in yeast cells of 5 stages. Each series contains 18 records measured 7 minutes apart.
+
+<p align="center">
+  <img src="eg3_yeast/plotSeriesEg3.png" width="65%">
+</p>
+
+### Results
+
+<p align="center">
+  <img src="eg3_yeast/plotKmeansEg3.png" width="65%">
+</p>
+
+<p align="center">
+  <img src="eg3_yeast/plotClusterProbEg3.png" width="65%">
+</p>
