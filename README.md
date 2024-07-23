@@ -46,7 +46,7 @@ for $i = 1, 2, \ldots, 120$ and $t = 1/40, 2/40, \ldots, 39/40, 1$.
 For each individual, one basis function is a 'low frequency' term and one basis function is a 'high frequency' term. The coefficient for each basis function can be large or small in magnitude, so that the low or high frequency signal can be strong or weak.
 
 <p align="center">
-  <img src="eg1_synthetic/plotSeriesEg1.png" width="65%">
+  <img src="eg1_synthetic/plotSeriesEg1.png" width="70%">
 </p>
 
 We fit temporal trends in the data using Fourier cosine bases, incorporating a random effect for each basis function. Next, we apply our clustering method with four different choices of random effects corresponding to the following frequency ranges: (1) all frequencies, (2) low frequencies, (3) intermediate frequencies, and (4) high frequencies.
@@ -54,7 +54,7 @@ We fit temporal trends in the data using Fourier cosine bases, incorporating a r
 ### Results
 
 <p align="center">
-  <img src="eg1_synthetic/plotClusterProbEg1.png" width="65%">
+  <img src="eg1_synthetic/plotClusterProbEg1.png" width="70%">
 </p>
 
 ## Application to real datasets
@@ -70,17 +70,17 @@ We analyze two datasets in the paper: crop image data (Section 4.2) and DNA data
 - Each observation represents a time series associated with a pixel from a satellite image, where the images at different times are corrected so that a given pixel corresponds to the same spatial region in all images.
 
 <p align="center">
-  <img src="eg2_crop/plotSeriesEg2.png" width="65%">
+  <img src="eg2_crop/plotSeriesEg2.png" width="70%">
 </p>
 
-### Results
+#### Results
 
 <p align="center">
-  <img src="eg2_crop/plotKmeansEg2.png" width="65%">
+  <img src="eg2_crop/plotKmeansEg2.png" width="70%">
 </p>
 
 <p align="center">
-  <img src="eg2_crop/plotClusterProbEg2.png" width="65%">
+  <img src="eg2_crop/plotClusterProbEg2.png" width="70%">
 </p>
 
 
@@ -89,15 +89,15 @@ We analyze two datasets in the paper: crop image data (Section 4.2) and DNA data
 - In the gene expression data (DNA data), each time series gives gene expression level over time relative to a control sample in yeast cells of 5 stages. Each series contains 18 records measured 7 minutes apart.
 
 <p align="center">
-  <img src="eg3_yeast/plotSeriesEg3.png" width="65%">
+  <img src="eg3_yeast/plotSeriesEg3.png" width="70%">
 </p>
 
-### Results
+#### Results
 
 <p align="center">
-  <img src="eg3_yeast/plotKmeansEg3.png" width="65%">
+  <img src="eg3_yeast/plotKmeansEg3.png" width="70%">
 </p>
 
 <p align="center">
-  <img src="eg3_yeast/plotClusterProbEg3.png" width="65%">
+  <img src="eg3_yeast/plotClusterProbEg3.png" width="70%">
 </p>
